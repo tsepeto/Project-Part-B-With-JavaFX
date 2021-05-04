@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import Utils.*?>
+
+<StackPane prefHeight="1080.0" prefWidth="1720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scoolwithjavafx.StudentPaneController">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1720.0" prefHeight="1080.0" prefWidth="1720.0" style="-fx-background-color: #57606f;">
+          <stylesheets>
+              <URL value="@Style.css" />
+          </stylesheets>
+         <children>
+            <Pane>
+               <children>
+                  <StackPane prefHeight="1000.0" prefWidth="1700.0" />
+               </children>
+            </Pane>
+            <VBox layoutX="20.0" layoutY="20.0" minHeight="1040.0" minWidth="560.0" prefHeight="1040.0" prefWidth="560.0" styleClass="darkpane" stylesheets="@Style.css">
+               <children>
+                  <Label minHeight="90.0" prefHeight="90.0" prefWidth="560.0" stylesheets="@Style.css" text="STUDENTS">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <styleClass>
+                        <String fx:value="header" />
+                        <String fx:value="centerallignment" />
+                     </styleClass>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" minHeight="70.0" prefHeight="70.0" prefWidth="560.0">
+                     <children>
+                        <CheckBox fx:id="searchCheckbox" disable="true" mnemonicParsing="false" onMouseClicked="#checkTheCheboxCondition" styleClass="my_label" text="Search">
+                           <HBox.margin>
+                              <Insets left="32.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                        <NumberTextField fx:id="numberOfCoursesTextfield" disable="true" onKeyReleased="#updateStudentsWithExactNumberOfCourses" prefWidth="100.0" styleClass="my_textfield" visible="false">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </NumberTextField>
+                     </children>
+                  </HBox>
+                  <VBox styleClass="darkpane">
+                     <children>
+                        <HBox fillHeight="false" layoutX="20.0" layoutY="20.0" prefHeight="790.0" prefWidth="500.0" styleClass="darkpane">
+                           <opaqueInsets>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                           <children>
+                              <TableView id="allStudents" fx:id="allStudents" onMouseClicked="#studentSelected" prefHeight="775.0" prefWidth="550.0" stylesheets="@Style.css">
+                                <columns>
+                                  <TableColumn id="firstName" fx:id="firstName" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="FIRST NAME" />
+                                  <TableColumn id="lastName" fx:id="lastName" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" text="LAST NAME" />
+                                    <TableColumn id="tuitionFees" fx:id="tuitionFees" maxWidth="116.0" minWidth="116.0" prefWidth="116.0" text="TUITION FEES" />
+                                    <TableColumn id="dateOfBirth" fx:id="birthDate" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" text="BIRTH DATE" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="500.0">
+                           <children>
+                              <Button fx:id="addStudentButton" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onMouseClicked="#addStudent" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" styleClass="image_button">
+                                       <image>
+                                          <Image url="@../images/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="deleteStudentButton" alignment="CENTER_RIGHT" disable="true" layoutX="490.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#removeStudent" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                                 <graphic>
+                                    <ImageView fitHeight="56.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="image_button">
+                                       <image>
+                                          <Image url="@../images/delete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="1.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox layoutX="600.0" layoutY="20.0" styleClass="darkpane">
+               <children>
+                  <HBox layoutX="620.0" layoutY="20.0" maxWidth="1100.0" minHeight="560.0" prefHeight="560.0" prefWidth="1100.0" styleClass="darkpane">
+                     <children>
+                        <VBox prefHeight="480.0" prefWidth="360.0">
+                           <children>
+                              <HBox alignment="TOP_CENTER" prefHeight="90.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="cancelButton" disable="true" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#cancelTheSave" styleClass="image_button" visible="false">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/cancel.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <padding>
+                                          <Insets left="35.0" top="30.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button fx:id="saveButton" disable="true" graphicTextGap="0.0" mnemonicParsing="false" onMouseClicked="#saveDetails" styleClass="image_button" visible="false">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/save.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <padding>
+                                          <Insets left="20.0" top="30.0" />
+                                       </padding>
+                                    </Button>
+                                    <Label prefHeight="60.0" prefWidth="180.0" styleClass="header" text="DETAILS">
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <Button fx:id="editButton" disable="true" graphicTextGap="0.0" layoutX="270.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#editDetails" styleClass="image_button">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/edit.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <padding>
+                                          <Insets left="80.0" top="30.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0" prefWidth="360.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="First Name : ">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="40.0" top="30.0" />
+                                       </padding>
+                                    </Label>
+              <!--a                               Your comment                 a-->
+                                    <LetterTextField fx:id="firstNameText" editable="false" prefWidth="200.0" styleClass="my_textfield">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="24.0" />
+                                       </HBox.margin>
+                                       <!--a                               Your comment                 a-->
+                                    </LetterTextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="360.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="Last Name : ">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets left="12.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="40.0" top="20.0" />
+                                       </padding>
+                                    </Label>
+              <!--a                               Your comment                 a-->                      
+                                    <LetterTextField fx:id="lastNameText" editable="false" prefWidth="200.0" styleClass="my_textfield">
+                                       <HBox.margin>
+                                          <Insets left="11.0" top="14.0" />
+                                       </HBox.margin>
+              <!--a                               Your comment                 a-->                         
+                                    </LetterTextField>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="360.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="Tuition Fees : ">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="41.0" top="23.0" />
+                                       </padding>
+                                    </Label>
+              <!--a                               Your comment                 a-->                      
+                                    <DoubleTextField fx:id="tuitionFeesText" editable="false" prefWidth="200.0" styleClass="my_textfield">
+                                       <HBox.margin>
+                                          <Insets left="11.0" top="16.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="18.0" />
+                                       </padding>
+              <!--a                               Your comment                 a-->                         
+                                    </DoubleTextField>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="110.0" prefHeight="40.0" prefWidth="360.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="Birth Date : ">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="41.0" top="23.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets left="14.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="birthDatePicker" editable="false" prefHeight="30.0" prefWidth="200.0" styleClass="my_datepicker">
+                                       <HBox.margin>
+                                          <Insets left="9.0" top="7.0" />
+                                       </HBox.margin>
+                                    </DatePicker>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="246.0" prefHeight="40.0" prefWidth="360.0">
+                                 <children>
+                                    <Label fx:id="detailsErrorLabel" disable="true" styleClass="my_error_label" text="Error:" visible="false">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="41.0" top="23.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="740.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="90.0" prefWidth="740.0">
+                                 <children>
+                                    <Label styleClass="header" text="COURSES" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="480.0" prefWidth="740.0" styleClass="darkpane">
+                                 <children>
+                                    <TableView fx:id="studentCourses" onMouseClicked="#courseSelected" prefHeight="410.0" prefWidth="600.0" stylesheets="@Style.css">
+                                      <columns>
+                                        <TableColumn fx:id="courseTitle" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="TITLE" />
+                                        <TableColumn fx:id="courseStream" maxWidth="147.0" minWidth="147.0" prefWidth="147.0" text="STREAM" />
+                                          <TableColumn fx:id="courseType" maxWidth="147.0" minWidth="147.0" prefWidth="147.0" text="TYPE" />
+                                          <TableColumn fx:id="courseStarts" maxWidth="98.0" minWidth="98.0" prefWidth="98.0" text="STARTS" />
+                                          <TableColumn fx:id="courseEnds" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="ENDS" />
+                                      </columns>
+                                       <HBox.margin>
+                                          <Insets bottom="30.0" left="30.0" top="30.0" />
+                                       </HBox.margin>
+                                    </TableView>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="addCourse" disable="true" mnemonicParsing="false" onMouseClicked="#showAddCoursePane" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                                             <graphic>
+                                                <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/add.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <VBox.margin>
+                                                <Insets top="26.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="removeCourse" disable="true" layoutX="10.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#removeCourseFromStudent" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                                             <graphic>
+                                                <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/delete.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="480.0" prefWidth="1100.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1100.0">
+                           <children>
+                              <Label styleClass="header" text="ASSIGNMENTS" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="380.0" prefWidth="1100.0">
+                           <children>
+                              <TableView fx:id="studentAssignments" onMouseClicked="#editTheAssignmentGrade" prefHeight="350.0" prefWidth="1020.0">
+                                <columns>
+                                  <TableColumn fx:id="assignmentTitle" maxWidth="230.0" minWidth="230.0" prefWidth="230.0" resizable="false" text="TITLE" />
+                                  <TableColumn fx:id="assignmentDescription" maxWidth="345.0" minWidth="345.0" prefWidth="345.0" text="DESCRIPTION" />
+                                    <TableColumn fx:id="assignmentDeadline" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="DEADLINE" />
+                                    <TableColumn fx:id="assignmentOralMark" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="ORAL MARK" />
+                                    <TableColumn fx:id="assignmentTotalMark" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="TOTAL MARK" />
+                                    <TableColumn fx:id="assignmentDelivered" maxWidth="98.0" minWidth="98.0" prefWidth="98.0" text="DELIVERED" />
+                                </columns>
+                                 <HBox.margin>
+                                    <Insets bottom="30.0" left="30.0" />
+                                 </HBox.margin>
+                              </TableView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+       </Pane>
+      <VBox fx:id="addCoursePane" layoutX="1120.0" layoutY="40.0" maxHeight="1000.0" maxWidth="1100.0" minHeight="1000.0" minWidth="1100.0" prefHeight="1000.0" prefWidth="1100.0" styleClass="transparentpane" stylesheets="@Style.css" translateX="1420.0">
+         <children>
+            <VBox maxHeight="1000.0" maxWidth="1000.0" minHeight="1000.0" minWidth="1100.0" prefHeight="1000.0" prefWidth="1100.0" styleClass="transparentpane" stylesheets="@Style.css">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="800.0">
+                     <children>
+                        <Button fx:id="cancelAddCourseButton" mnemonicParsing="false" onMouseClicked="#cancelAddCourse" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8-back-to-100.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="1000.0">
+                     <children>
+                        <Label style="-fx-opacity: 100;" styleClass="header" stylesheets="@Style.css" text="AVALIABLE COURSES" />
+                     </children>
+                  </HBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="820.0" prefWidth="1000.0">
+                     <children>
+                        <TableView fx:id="avaliableCourses" maxWidth="1000.0" onMouseClicked="#addCourseToStudent" prefHeight="700.0" prefWidth="1000.0">
+                          <columns>
+                            <TableColumn fx:id="avaliableCoursesTitle" prefWidth="220.0" text="TITLE" />
+                            <TableColumn fx:id="avaliableCoursesStream" prefWidth="215.0" text="STREAM" />
+                              <TableColumn fx:id="avaliableCoursesType" prefWidth="300.0" text="TYPE" />
+                              <TableColumn fx:id="avaliableCoursesStarts" prefWidth="130.0" text="STARTS" />
+                              <TableColumn fx:id="avaliableCoursesEnds" prefWidth="130.0" text="ENDS" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox fx:id="editStudentGrade" layoutX="1120.0" layoutY="40.0" maxHeight="1000.0" maxWidth="1100.0" minHeight="1000.0" minWidth="1100.0" prefHeight="1000.0" prefWidth="1100.0" styleClass="transparentpane" stylesheets="@Style.css" translateX="1420.0">
+         <children>
+            <VBox maxHeight="1000.0" maxWidth="1000.0" minHeight="1000.0" minWidth="1100.0" prefHeight="1000.0" prefWidth="1100.0" styleClass="transparentpane" stylesheets="@Style.css">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="800.0">
+                     <children>
+                        <Button fx:id="goBackButton" mnemonicParsing="false" onMouseClicked="#goBackFromStudentGrade" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8-back-to-100.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1000.0">
+                     <children>
+                        <Button fx:id="saveGrade" disable="true" mnemonicParsing="false" onMouseClicked="#saveGradeChanges" style="-fx-background-color: transparent;" visible="false">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/save.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="cancelSaveGrade" disable="true" mnemonicParsing="false" onMouseClicked="#cancelSaveGradeChanges" style="-fx-background-color: transparent;" visible="false">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/cancel.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label style="-fx-opacity: 100;" styleClass="header" stylesheets="@Style.css" text="STUDENT GRADES">
+                           <HBox.margin>
+                              <Insets left="280.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button fx:id="editGrade" mnemonicParsing="false" onMouseClicked="#editGrades" style="-fx-background-color: transparent;">
+                           <HBox.margin>
+                              <Insets left="280.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/edit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <VBox alignment="TOP_CENTER" minHeight="800.0" minWidth="1000.0" prefHeight="800.0" prefWidth="1000.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1000.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="Oral Mark: " />
+                                    <NumberTextField fx:id="oralMarkTextfield" editable="false" prefWidth="100.0" styleClass="my_textfield" />
+                                    <Label fx:id="oralMarkLabel" layoutX="171.0" layoutY="50.0" styleClass="my_label" text="/" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="Total Mark: " />
+                                    <NumberTextField fx:id="totalMarkTextfield" editable="false" prefWidth="100.0" styleClass="my_textfield" />
+                                    <Label fx:id="totalMarkLabel" styleClass="my_label" text="/" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="200.0">
+                           <children>
+                              <Label styleClass="header" text="ASSIGNMENT DETAILS" />
+                           </children>
+                        </HBox>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="1000.0">
+                           <children>
+                              <Label styleClass="my_label" text="Title" />
+                              <TextField fx:id="titleTextField" editable="false" maxWidth="800.0" minWidth="800.0" prefWidth="800.0" styleClass="my_textarea_transparent">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="800.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" styleClass="my_label" text="Description" />
+                              <TextArea fx:id="descriptionTextArea" editable="false" maxHeight="350.0" maxWidth="800.0" minHeight="350.0" prefHeight="400.0" prefWidth="800.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <styleClass>
+                                    <String fx:value="my_textarea_transparent" />
+                                    <String fx:value="styled-text-area" />
+                                 </styleClass>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label styleClass="my_label" text="Deadline: " />
+                              <DatePicker fx:id="deadlinePicker" editable="false" prefWidth="200.0" styleClass="my_datepicker" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

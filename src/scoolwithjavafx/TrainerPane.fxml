@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import Utils.*?>
+
+<StackPane prefHeight="1080.0" prefWidth="1720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scoolwithjavafx.TrainerPaneController">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1720.0" style="-fx-background-color: #57606f;" stylesheets="@Style.css">
+         <children>
+            <VBox layoutX="20.0" layoutY="20.0" prefHeight="1040.0" prefWidth="560.0" styleClass="darkpane">
+               <children>
+                  <Label prefHeight="100.0" prefWidth="560.0" styleClass="header" text="TRAINERS" />
+                  <VBox layoutX="20.0" layoutY="20.0" prefHeight="820.0" prefWidth="500.0" styleClass="darkpane">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                     <children>
+                        <TableView fx:id="trainersTable" onMouseClicked="#trainerSelected" prefHeight="780.0" prefWidth="500.0">
+                          <columns>
+                            <TableColumn id="firstNameTable" fx:id="trainersFName" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="First Name" />
+                            <TableColumn id="lastNameTable" fx:id="trainersLName" maxWidth="245.0" minWidth="245.0" prefWidth="245.0" text="Last Name" />
+                          </columns>
+                        </TableView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </opaqueInsets>
+                  </VBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="500.0">
+                     <children>
+                        <Button fx:id="addTrainerButton" disable="true" mnemonicParsing="false" onMouseClicked="#addTrainer" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="deleteTrainerButton" disable="true" layoutX="490.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#deleteTrainer" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                           <graphic>
+                              <ImageView fitHeight="56.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/delete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets top="1.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="600.0" layoutY="20.0" prefHeight="1040.0" prefWidth="1100.0" styleClass="darkpane">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="1080.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="cancelTheSaveButton" disable="true" mnemonicParsing="false" onMouseClicked="#cancelTheSave" styleClass="image_button" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/cancel.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="saveDetailsButton" disable="true" mnemonicParsing="false" onMouseClicked="#saveDetails" styleClass="image_button" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/save.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </HBox>
+                        <Label prefHeight="60.0" prefWidth="180.0" styleClass="header" text="DETAILS">
+                           <HBox.margin>
+                              <Insets left="230.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button fx:id="editDetailsButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onMouseClicked="#editDetails" styleClass="image_button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/edit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="390.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="430.0" prefWidth="1080.0" styleClass="darkpane">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="430.0" prefWidth="480.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="First Name :" />
+                                    <LetterTextField fx:id="firstNameText" editable="false" styleClass="my_textfield" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="Last Name :" />
+                                    <LetterTextField fx:id="lastNameText" editable="false" styleClass="my_textfield" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="detailsErrorLabel" prefWidth="400.0" styleClass="my_error_label" visible="false" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="430.0" prefWidth="600.0">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+                                 <children>
+                                    <Label styleClass="my_label" text="Subject:" />
+                                 </children>
+                              </VBox>
+                              <TextArea fx:id="subjectTextfield" editable="false" prefHeight="200.0" prefWidth="580.0" styleClass="my_textarea">
+                                 <VBox.margin>
+                                    <Insets right="20.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="520.0" prefWidth="1100.0">
+                     <children>
+                        <HBox alignment="CENTER" fillHeight="false" maxHeight="100.0" maxWidth="1080.0" minHeight="100.0" minWidth="1080.0" prefHeight="100.0" prefWidth="1080.0">
+                           <children>
+                              <Label styleClass="header" text="COURSES" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="430.0" prefWidth="1080.0" styleClass="darkpane">
+                           <children>
+                              <TableView fx:id="coursesTable" maxHeight="370.0" maxWidth="960.0" minHeight="370.0" minWidth="960.0" onMouseClicked="#courseSelected" prefHeight="370.0" prefWidth="960.0">
+                                <columns>
+                                  <TableColumn fx:id="coursesTitle" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" text="Title" />
+                                  <TableColumn fx:id="coursesStream" maxWidth="285.0" minWidth="285.0" prefWidth="285.0" text="Stream" />
+                                    <TableColumn fx:id="coursesType" maxWidth="285.0" minWidth="285.0" prefWidth="285.0" text="Type" />
+                                    <TableColumn fx:id="coursesStarts" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" text="Starts" />
+                                    <TableColumn fx:id="coursesEnds" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" text="Ends" />
+                                </columns>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </HBox.margin>
+                              </TableView>
+                              <VBox maxHeight="410.0" maxWidth="80.0" minHeight="410.0" minWidth="80.0" prefHeight="410.0" prefWidth="80.0">
+                                 <children>
+                                    <Button fx:id="addCourseButton" disable="true" mnemonicParsing="false" onMouseClicked="#addCourse" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                                       <graphic>
+                                          <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/add.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="removeCourseButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#removeCourse" prefHeight="50.0" prefWidth="50.0" styleClass="image_button">
+                                       <graphic>
+                                          <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/delete.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets top="3.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <VBox fx:id="addCoursePane" layoutX="1120.0" layoutY="40.0" maxHeight="1000.0" maxWidth="1100.0" minHeight="1000.0" minWidth="1100.0" prefHeight="1000.0" prefWidth="1100.0" styleClass="transparentpane" stylesheets="@Style.css" translateX="1420.0">
+         <children>
+            <VBox maxHeight="1000.0" maxWidth="1000.0" minHeight="1000.0" minWidth="1100.0" prefHeight="1000.0" prefWidth="1100.0" styleClass="transparentpane" stylesheets="@Style.css">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="800.0">
+                     <children>
+                        <Button fx:id="cancelAddCourseButton" mnemonicParsing="false" onMouseClicked="#cancelAddCourse" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/icons8-back-to-100.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="1000.0">
+                     <children>
+                        <Label style="-fx-opacity: 100;" styleClass="header" stylesheets="@Style.css" text="AVALIABLE COURSES" />
+                     </children>
+                  </HBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="820.0" prefWidth="1000.0">
+                     <children>
+                        <TableView fx:id="avaliableCourses" maxWidth="1000.0" onMouseClicked="#addCourseToTrainer" prefHeight="700.0" prefWidth="1000.0">
+                           <columns>
+                              <TableColumn fx:id="avaliableCoursesTitle" prefWidth="220.0" text="TITLE" />
+                              <TableColumn fx:id="avaliableCoursesStream" prefWidth="215.0" text="STREAM" />
+                              <TableColumn fx:id="avaliableCoursesType" prefWidth="300.0" text="TYPE" />
+                              <TableColumn fx:id="avaliableCoursesStarts" prefWidth="130.0" text="STARTS" />
+                              <TableColumn fx:id="avaliableCoursesEnds" prefWidth="130.0" text="ENDS" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

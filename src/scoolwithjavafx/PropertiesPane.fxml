@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import Utils.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1720.0" style="-fx-background-color: #57606f;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scoolwithjavafx.PropertiesPaneController">
+   <children>
+      <VBox layoutX="20.0" layoutY="20.0" prefHeight="1040.0" prefWidth="560.0" styleClass="darkpane">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="560.0">
+               <children>
+                  <Label styleClass="header" text="sCOOL PROPERTIES" />
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="560.0">
+                     <children>
+                        <CheckBox fx:id="serverCheckButton" disable="true" mnemonicParsing="false" styleClass="my_label" text="Server Disonnected">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin></CheckBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="10.0" prefHeight="100.0" prefWidth="560.0">
+                     <children>
+                        <CheckBox fx:id="databaseCheckButton" disable="true" mnemonicParsing="false" styleClass="my_label" text="Database Disconnected">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="560.0">
+                     <children>
+                        <CheckBox fx:id="readyCheckButton" disable="true" mnemonicParsing="false" styleClass="my_label" text="Can't Check Database">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="500.0" prefWidth="560.0">
+               <children>
+                  <Label styleClass="header" text="ATTENTION" />
+                  <TextArea fx:id="attentionMessage" editable="false" maxHeight="400.0" maxWidth="500.0" minHeight="400.0" minWidth="500.0" prefHeight="400.0" prefWidth="500.0" styleClass="my_textarea" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox layoutX="600.0" layoutY="20.0" prefHeight="1040.0" prefWidth="1100.0" styleClass="darkpane">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="cancelSaveDetailsButton" disable="true" mnemonicParsing="false" onMouseClicked="#cancelSaveDetails" styleClass="image_button" visible="false">
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/cancel.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="30.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="saveDetailsButton" disable="true" mnemonicParsing="false" onMouseClicked="#saveDetails" styleClass="image_button" visible="false">
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/save.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label prefWidth="80.0" styleClass="header" text="DETAILS">
+                     <HBox.margin>
+                        <Insets left="310.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="editDetailsButton" mnemonicParsing="false" onMouseClicked="#editDetails" prefHeight="45.0" prefWidth="60.0" styleClass="image_button">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="415.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="700.0" prefWidth="1100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label styleClass="my_label" text="URL Domain:" />
+                        <TextField fx:id="urlDomainTextField" editable="false" styleClass="my_textfield" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label styleClass="my_label" text="Server Port:" />
+                        <NumberTextField fx:id="serverPortTextField" editable="false" styleClass="my_textfield" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="360.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label styleClass="my_label" text="Database Name:" />
+                        <TextField fx:id="databaseNameTextField" editable="false" styleClass="my_textfield">
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="410.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label styleClass="my_label" text="Username:" />
+                        <TextField fx:id="usernameTextField" editable="false" styleClass="my_textfield" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="460.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label styleClass="my_label" text="Password:" />
+                        <TextField fx:id="passwordTextField" editable="false" styleClass="my_textfield" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="restoreToDefaultButton" mnemonicParsing="false" onMouseClicked="#restoreToDefault" styleClass="button2" text="Restore to Default Properties" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

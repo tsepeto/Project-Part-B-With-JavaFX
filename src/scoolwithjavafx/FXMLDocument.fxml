@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scoolwithjavafx.FXMLDocumentController">
+    <stylesheets>
+        <URL value="@Style.css" />
+    </stylesheets>
+    <children>
+      <VBox prefHeight="1080.0" prefWidth="250.0" styleClass="image_button" stylesheets="@Style.css">
+         <children>
+            <Button id="button1" fx:id="studentButton" graphicTextGap="15.0" minHeight="100.0" minWidth="230.0" mnemonicParsing="false" onAction="#handleButtonActionStudent" prefHeight="100.0" prefWidth="230.0" stylesheets="@Style.css" text="Students" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" top="150.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/students.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="button1" fx:id="trainerButton" graphicTextGap="15.0" layoutX="35.0" layoutY="210.0" minHeight="100.0" minWidth="230.0" mnemonicParsing="false" onAction="#handleButtonActionTrainer" prefHeight="100.0" prefWidth="230.0" stylesheets="@Style.css" text="Trainers">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/trainer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="button1" fx:id="courseButton" graphicTextGap="15.0" layoutX="35.0" layoutY="330.0" minHeight="100.0" minWidth="230.0" mnemonicParsing="false" onAction="#handleButtonActionCourse" prefHeight="100.0" prefWidth="230.0" stylesheets="@Style.css" text="Courses">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/course.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="button1" fx:id="assignmentButton" graphicTextGap="15.0" layoutX="35.0" layoutY="450.0" minHeight="100.0" minWidth="235.0" mnemonicParsing="false" onAction="#handleButtonActionAssignment" prefHeight="100.0" prefWidth="230.0" stylesheets="@Style.css" text="Assignments">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="15.0" top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/assignment.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="button1" fx:id="propertiesButton" graphicTextGap="15.0" layoutX="10.0" layoutY="550.0" minHeight="100.0" minWidth="230.0" mnemonicParsing="false" onAction="#handleButtonActionProperties" prefHeight="100.0" prefWidth="230.0" stylesheets="@Style.css" text="Properties">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/properties.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="button1" fx:id="exitButton" graphicTextGap="15.0" layoutX="10.0" layoutY="650.0" minHeight="100.0" minWidth="230.0" mnemonicParsing="false" onAction="#handleButtonActionExit" prefHeight="100.0" prefWidth="230.0" stylesheets="@Style.css" text="Exit">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Pane fx:id="mainPane" layoutX="200.0" minHeight="1080.0" minWidth="1720.0" prefHeight="1080.0" prefWidth="1720.0" />
+   </children>
+</Pane>
